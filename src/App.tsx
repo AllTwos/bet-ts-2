@@ -20,6 +20,20 @@ function App() {
     setAllBets(newBets);
   };
 
+  const createBet = () => {
+    const newBet = {
+      id: Math.random(),
+      user: "Big fargus",
+      betTitle: "Test Creation!",
+      betStr: "We diiiid it!",
+      date: new Date().toLocaleDateString(),
+      comments: [],
+      bets: [],
+    };
+
+    setAllBets([...allBets, newBet]);
+  };
+
   const addComment = (id: number, comment: string) => {
     const newBets = allBets.map((bet: Bet) => {
       if (bet.id === id) {
@@ -46,9 +60,9 @@ function App() {
         <Route
           path="/"
           element={
+            // Make a Home Component
             <div>
-              <h1>APP</h1>
-              <h2>CardList</h2>
+              <button onClick={() => createBet()}>Create bet</button>
               <CardList {...{ allBets }} />
             </div>
           }
