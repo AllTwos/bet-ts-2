@@ -11,8 +11,8 @@ function Card({
   deleteBet,
   addComment,
 }: Bet | any) {
-  const [name, setName] = useState("");
-  const [userComment, setUserComment] = useState(""); //move to CardList so can reset state after button pushed
+
+  const [userComment, setUserComment] = useState("");
 
   return (
     <div>
@@ -31,14 +31,26 @@ function Card({
           );
         })}
         <input
-          onChange={(e) => setUserComment(e.target.value)}
+          onChange={(e) => {
+            setUserComment(e.target.value);
+          }}
           onKeyDown={(e) => {
-            e.key === "Enter" && addComment(id, userComment);
+            if (e.key === "Enter") {
+              addComment(id, userComment);
+              setUserComment("");
+            }
           }}
           type="text"
           value={userComment}
         />
-        <button onClick={() => addComment(id, userComment)}>Add comment</button>
+        <button
+          onClick={() => {
+            addComment(id, userComment);
+            setUserComment("");
+          }}
+        >
+          Add comment
+        </button>
         <hr />
         {/* Delete */}
         <button onClick={() => deleteBet(id)}>Delete Bet</button>
