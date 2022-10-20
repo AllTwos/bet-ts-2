@@ -18,8 +18,8 @@ function Card({
     <div>
       <div className="card">
         {/* Info */}
-        <h1>{user}</h1>
-        <h3>Bet: {betStr}</h3>
+        <h1>{betStr}</h1>
+        <h3>User: {user}</h3>
         <p>{date}</p>
         <hr />
         {/* Comments */}
