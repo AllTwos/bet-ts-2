@@ -9,9 +9,29 @@ function Card({
 
   const navigate = useNavigate()
 
+  const colors = [
+    "#d0c4e7",
+    "#c2dae1",
+    "#ffd0d0",
+    "#fff7ad",
+    "#9EF8DF",
+    "#FFFCB8",
+    "#FCC470",
+    "#77F8FD",
+    "#EBCCD0",
+    "#FFE9D0",
+    "#BBDBAB",
+  ];
+
   return (
     <div>
-      <div className="card">
+      <div
+        onClick={() => navigate(`/bet/${id}`)}
+        className="card"
+        style={{
+          background: colors[Math.floor(Math.random() * colors.length)],
+        }}
+      >
         {/* Info */}
         <h1>{betTitle}</h1>
         <p>{betStr}</p>
@@ -27,8 +47,8 @@ function Card({
 
         {/* Comments */}
         <h3>Comments</h3>
-        {comments.slice(0, 4).map(({ user, comment, id }: any, idx: number) => {
-          if (idx === 3) {
+        {comments.slice(0, 3).map(({ user, comment, id }: any, idx: number) => {
+          if (idx === 2) {
             return <div>... continued</div>;
           }
           return (
@@ -37,8 +57,6 @@ function Card({
             </div>
           );
         })}
-        {/* Page */}
-        <button onClick={() => navigate(`/bet/${id}`)}>Go</button>
       </div>
     </div>
   );

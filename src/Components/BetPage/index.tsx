@@ -1,15 +1,62 @@
 import { useState } from "react";
 import "./index.css";
-import { Bet } from "../../Utils/bet-data";
 
 import { useParams } from "react-router-dom";
 
-const BetPage = ({ allBets }: any) => {
-  
+const BetPage = ({ allBets, addComment }: any) => {
+  const [userComment, setUserComment] = useState("");
+
+  let params = useParams();
+
+  let theBet = allBets.filter((bet: any) => bet.id.toString() === params.id)[0];
+
+  let { id, user, betTitle, betStr, date, comments, bets } = theBet;
 
   return (
     <div className="bet-page">
-      <h1>BetPage Component</h1>
+      <h1>{betTitle}</h1>
+      <p>{date}</p>
+      <h3>{betStr}</h3>
+      <p>{user}</p>
+      <hr />
+      <h1>Bets</h1>
+      {bets.map(({ user, bet, date }: any) => {
+        return (
+          <div key={Math.random()}>
+            <p>{`${user}: ${bet} - ${date}`}</p>
+          </div>
+        );
+      })}
+      <hr />
+      <h3>Comments</h3>
+      {comments.map(({ user, id, comment }: any) => {
+        return (
+          <div key={id}>
+            <p>{`${user}: ${comment}`}</p>
+          </div>
+        );
+      })}
+      <input
+        onChange={(e) => {
+          setUserComment(e.target.value);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            addComment(id, userComment);
+            setUserComment("");
+          }
+        }}
+        type="text"
+        value={userComment}
+      />
+      <button
+        onClick={() => {
+          addComment(id, userComment);
+          setUserComment("");
+        }}
+      >
+        Add comment
+      </button>
     </div>
   );
 };

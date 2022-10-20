@@ -44,18 +44,20 @@ function App() {
     <Router>
       <Routes>
         <Route
-          path="/" 
-          element={<div>
-            <h1>APP</h1>
-            <h2>CardList</h2>
-            <CardList {...{ allBets }} />
-          </div>}
+          path="/"
+          element={
+            <div>
+              <h1>APP</h1>
+              <h2>CardList</h2>
+              <CardList {...{ allBets }} />
+            </div>
+          }
         />
         <Route
           path="bet/:id"
-          element={<BetPage />}
+          element={<BetPage {...{ allBets, addComment }} />}
         />
-      </Routes>   
+      </Routes>
     </Router>
   );
 }
