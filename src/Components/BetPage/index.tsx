@@ -2,7 +2,11 @@ import { useState } from "react";
 import "./index.css";
 import { Bet } from "../../Utils/bet-data";
 
+import { useParams } from "react-router-dom";
+
 const BetPage = ({ allBets }: any) => {
+  
+
   return (
     <div className="bet-page">
       <h1>BetPage Component</h1>

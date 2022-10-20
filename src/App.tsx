@@ -2,6 +2,13 @@ import { useState } from "react";
 import CardList from "./Components/CardList";
 import { bets, Bet } from "./Utils/bet-data";
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import BetPage from "./Components/BetPage";
+
 function App() {
   const [allBets, setAllBets] = useState(bets);
 
@@ -34,11 +41,22 @@ function App() {
     setAllBets(newBets);
   };
   return (
-    <div>
-      <h1>APP</h1>
-      <h2>CardList</h2>
-      <CardList {...{ allBets }} />
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/" 
+          element={<div>
+            <h1>APP</h1>
+            <h2>CardList</h2>
+            <CardList {...{ allBets }} />
+          </div>}
+        />
+        <Route
+          path="bet/:id"
+          element={<BetPage />}
+        />
+      </Routes>   
+    </Router>
   );
 }
 

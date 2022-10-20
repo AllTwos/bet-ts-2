@@ -1,9 +1,14 @@
 import "./index.css";
 import { Bet } from "../../Utils/bet-data";
 
+import { useNavigate } from "react-router-dom";
+
 function Card({
   bet: { date, user, betStr, id, comments, betTitle, bets },
 }: Bet | any) {
+
+  const navigate = useNavigate()
+
   return (
     <div>
       <div className="card">
@@ -33,7 +38,7 @@ function Card({
           );
         })}
         {/* Page */}
-        <button>Go</button>
+        <button onClick={() => navigate(`/bet/${id}`)}>Go</button>
       </div>
     </div>
   );
