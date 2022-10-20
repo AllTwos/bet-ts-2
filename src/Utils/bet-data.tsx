@@ -1,10 +1,11 @@
 export interface Bet {
   id: number;
-  key: number;
   user: string;
+  betTitle: string;
   betStr: string;
   date: string;
   comments: any;
+  bets: any;
 }
 
 export type Bets = Bet[];
@@ -12,10 +13,27 @@ export type Bets = Bet[];
 export const bets: Bets = [
   {
     id: 1,
-    key: new Date().getTime(),
     user: "betMan333",
-    betStr: "the moon will fall to earth",
+    betTitle: "When will Joe Everyman get divorced?",
+    betStr: "We all know Joe is cheating on his wife. When will she find out?",
     date: new Date().toLocaleDateString(),
+    bets: [
+      {
+        user: "TestPerson1",
+        bet: "Summer 2023",
+        date: new Date().toLocaleDateString(),
+      },
+      {
+        user: "SandyPandy",
+        bet: "Fall 2024",
+        date: new Date().toLocaleDateString(),
+      },
+      {
+        user: "BrotherJoe44",
+        bet: "Today!",
+        date: new Date().toLocaleDateString(),
+      },
+    ],
     comments: [
       {
         id: 1,
@@ -31,10 +49,27 @@ export const bets: Bets = [
   },
   {
     id: 2,
-    key: new Date().getTime(),
     user: "testBetter9",
-    betStr: "birds will stop flying",
+    betTitle: "How many useless degrees until Max Personman gets a job",
+    betStr: "Max is perpetually in school. When will he actually get a job?",
     date: new Date().toLocaleDateString(),
+    bets: [
+      {
+        user: "TestPerson77",
+        bet: "4",
+        date: new Date().toLocaleDateString(),
+      },
+      {
+        user: "UpDownAllAround5",
+        bet: "3",
+        date: new Date().toLocaleDateString(),
+      },
+      {
+        user: "BrotherJoe44",
+        bet: "100!",
+        date: new Date().toLocaleDateString(),
+      },
+    ],
     comments: [
       {
         id: 1,
@@ -50,10 +85,27 @@ export const bets: Bets = [
   },
   {
     id: 3,
-    key: new Date().getTime(),
     user: "hungryHippo23",
-    betStr: "the yankees will become a hockey team",
+    betTitle: "Year when all the birds just give up",
+    betStr: "They MUST be getting tired of flying. It's only a matter of time",
     date: new Date().toLocaleDateString(),
+    bets: [
+      {
+        user: "HankHole",
+        bet: "2030",
+        date: new Date().toLocaleDateString(),
+      },
+      {
+        user: `GerardButler'sButler`,
+        bet: "2099",
+        date: new Date().toLocaleDateString(),
+      },
+      {
+        user: "Jenkins897823",
+        bet: "2001!",
+        date: new Date().toLocaleDateString(),
+      },
+    ],
     comments: [
       {
         id: 1,
@@ -64,6 +116,21 @@ export const bets: Bets = [
         id: 2,
         user: "Greg's Mom",
         comment: "I cannot fish with my eyes closed. I'm sorry.",
+      },
+      {
+        id: 3,
+        user: "Greg's Mom",
+        comment: "I cannot fish with my eyes closed. I'm sorry.",
+      },
+      {
+        id: 4,
+        user: "Greg's Mom",
+        comment: "I cannot fish with my eyes closed. I'm sorry.",
+      },
+      {
+        id: 5,
+        user: "Greg's Mom",
+        comment: "I shouldn't be shown!",
       },
     ],
   },

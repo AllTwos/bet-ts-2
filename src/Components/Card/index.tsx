@@ -1,59 +1,39 @@
-import { useState } from "react";
 import "./index.css";
 import { Bet } from "../../Utils/bet-data";
 
 function Card({
-  date,
-  user,
-  betStr,
-  id,
-  comments,
-  deleteBet,
-  addComment,
+  bet: { date, user, betStr, id, comments, betTitle, bets },
 }: Bet | any) {
-
-  const [userComment, setUserComment] = useState("");
-
   return (
     <div>
       <div className="card">
         {/* Info */}
-        <h1>{betStr}</h1>
-        <h3>User: {user}</h3>
+        <h1>{betTitle}</h1>
+        <p>{betStr}</p>
+        <h5>User: {user}</h5>
         <p>{date}</p>
         <hr />
+        {/* Bets */}
+        <h3>Bets</h3>
+        {bets.map(({ user, bet, date }: any) => {
+          return <p>{`${user}: ${bet} - ${date}`}</p>;
+        })}
+        <hr />
+
         {/* Comments */}
-        {comments.map(({ user, comment, id }: any) => {
+        <h3>Comments</h3>
+        {comments.slice(0, 4).map(({ user, comment, id }: any, idx: number) => {
+          if (idx === 3) {
+            return <div>... continued</div>;
+          }
           return (
             <div key={id}>
-              <p>{`${user}: "${comment}"`}</p>
+              <p>{`${user}: "${comment}" ${idx}`}</p>
             </div>
           );
         })}
-        <input
-          onChange={(e) => {
-            setUserComment(e.target.value);
-          }}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              addComment(id, userComment);
-              setUserComment("");
-            }
-          }}
-          type="text"
-          value={userComment}
-        />
-        <button
-          onClick={() => {
-            addComment(id, userComment);
-            setUserComment("");
-          }}
-        >
-          Add comment
-        </button>
-        <hr />
-        {/* Delete */}
-        <button onClick={() => deleteBet(id)}>Delete Bet</button>
+        {/* Page */}
+        <button>Go</button>
       </div>
     </div>
   );
