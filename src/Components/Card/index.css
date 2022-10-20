@@ -1,0 +1,16 @@
+.card-h1 {
+  color: red;
+}
+.card {
+  margin: 1.5rem;
+  width: 500px;
+  height: 500px;
+  background: #a0a0a0;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 750px) {
+  .card {
+    width: 84vw;
+  }
+}

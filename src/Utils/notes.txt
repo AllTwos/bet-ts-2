@@ -1,0 +1,3 @@
+logic you cont use, but no specific connection.
+
+ex: funcs, 
