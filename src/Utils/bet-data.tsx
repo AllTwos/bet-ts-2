@@ -18,33 +18,33 @@ export const bets: Bets = [
     betStr: "We all know Joe is cheating on his wife. When will she find out?",
     date: new Date().toLocaleDateString(),
     childBets: [
-      {
-        user: "TestPerson1",
-        bet: "Summer 2023",
-        date: new Date().toLocaleDateString(),
-      },
-      {
-        user: "SandyPandy",
-        bet: "Fall 2024",
-        date: new Date().toLocaleDateString(),
-      },
-      {
-        user: "BrotherJoe44",
-        bet: "Today!",
-        date: new Date().toLocaleDateString(),
-      },
+      // {
+      //   user: "TestPerson1",
+      //   bet: "Summer 2023",
+      //   date: new Date().toLocaleDateString(),
+      // },
+      // {
+      //   user: "SandyPandy",
+      //   bet: "Fall 2024",
+      //   date: new Date().toLocaleDateString(),
+      // },
+      // {
+      //   user: "BrotherJoe44",
+      //   bet: "Today!",
+      //   date: new Date().toLocaleDateString(),
+      // },
     ],
     comments: [
-      {
-        id: 1,
-        user: "Larry",
-        comment: "I cannot believe I am comment!",
-      },
-      {
-        id: 2,
-        user: "Shoozie",
-        comment: "I cannot believe I am comment too!",
-      },
+      // {
+      //   id: 1,
+      //   user: "Larry",
+      //   comment: "I cannot believe I am comment!",
+      // },
+      // {
+      //   id: 2,
+      //   user: "Shoozie",
+      //   comment: "I cannot believe I am comment too!",
+      // },
     ],
   },
   {

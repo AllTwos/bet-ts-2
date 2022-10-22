@@ -32,6 +32,9 @@ const AppProvider = ({ children }: any) => {
   };
 
   const addComment = (id: number, comment: string) => {
+    if (!comment) {
+      return;
+    }
     const newBets = allBets.map((bet: Bet) => {
       if (bet.id === id) {
         return {
@@ -54,6 +57,9 @@ const AppProvider = ({ children }: any) => {
   };
 
   const addChildBet = (id: number, childBet: string) => {
+    if (!childBet) {
+      return;
+    }
     const newChildBet = allBets.map((bet) => {
       if (bet.id === id) {
         return {

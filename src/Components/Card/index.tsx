@@ -45,7 +45,7 @@ function Card({
           }
           return (
             <div key={id}>
-              <p>{`${user}: "${comment}" ${idx}`}</p>
+              <p>{`${user}: "${comment}"`}</p>
             </div>
           );
         })}
