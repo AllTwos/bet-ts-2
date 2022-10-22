@@ -2,15 +2,36 @@ import { useState } from "react";
 import CardList from "./Components/CardList";
 import { bets, Bet } from "./Utils/bet-data";
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+import BetPage from "./Components/BetPage";
+
 function App() {
   const [allBets, setAllBets] = useState(bets);
 
   //funcs
-  const deleteBet = (id: any) => {
-    const newBets = allBets.filter((bet: Bet) => bet.id !== id);
-    console.log(newBets);
+  // const deleteBet = (id: any) => {
+  //   const newBets = allBets.filter((bet: Bet) => bet.id !== id);
+  //   console.log(newBets);
 
-    setAllBets(newBets);
+  //   setAllBets(newBets);
+  // };
+
+  const createBet = () => {
+    const newBet = {
+      id: Math.random(),
+      user: "Big fargus",
+      betTitle: "Test Creation!",
+      betStr: "We diiiid it!",
+      date: new Date().toLocaleDateString(),
+      comments: [],
+      bets: [],
+    };
+
+    setAllBets([...allBets, newBet]);
   };
 
   const addComment = (id: number, comment: string) => {
@@ -34,11 +55,24 @@ function App() {
     setAllBets(newBets);
   };
   return (
-    <div>
-      <h1>APP</h1>
-      <h2>CardList</h2>
-      <CardList {...{ allBets }} />
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            // Make a Home Component
+            <div>
+              <button onClick={() => createBet()}>Create bet</button>
+              <CardList {...{ allBets }} />
+            </div>
+          }
+        />
+        <Route
+          path="bet/:id"
+          element={<BetPage {...{ allBets, addComment }} />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
