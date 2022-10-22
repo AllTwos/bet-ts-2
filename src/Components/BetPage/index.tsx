@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./index.css";
 import { useGlobalContext } from "../../Utils/Context";
 import { useParams } from "react-router-dom";
