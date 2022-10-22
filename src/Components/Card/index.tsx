@@ -1,26 +1,12 @@
 import "./index.css";
 import { Bet } from "../../Utils/bet-data";
-
 import { useNavigate } from "react-router-dom";
+import { colors } from "../../Assets/CardColors";
 
 function Card({
   bet: { date, user, betStr, id, comments, betTitle, childBets },
 }: Bet | any) {
   const navigate = useNavigate();
-
-  const colors = [
-    "#d0c4e7",
-    "#c2dae1",
-    "#ffd0d0",
-    "#fff7ad",
-    "#9EF8DF",
-    "#FFFCB8",
-    "#FCC470",
-    "#77F8FD",
-    "#EBCCD0",
-    "#FFE9D0",
-    "#BBDBAB",
-  ];
 
   return (
     <div>

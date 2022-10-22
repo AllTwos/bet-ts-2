@@ -35,6 +35,11 @@ const BetPage = () => {
         );
       })}
       <input
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            addChildBet(id, childBetText);
+          }
+        }}
         onChange={(e) => setChildBetText(e.target.value)}
         type="text"
         value={childBetText}
