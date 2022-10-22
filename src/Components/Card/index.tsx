@@ -4,10 +4,9 @@ import { Bet } from "../../Utils/bet-data";
 import { useNavigate } from "react-router-dom";
 
 function Card({
-  bet: { date, user, betStr, id, comments, betTitle, bets },
+  bet: { date, user, betStr, id, comments, betTitle, childBets },
 }: Bet | any) {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const colors = [
     "#d0c4e7",
@@ -40,8 +39,15 @@ function Card({
         <hr />
         {/* Bets */}
         <h3>Bets</h3>
-        {bets.map(({ user, bet, date }: any) => {
-          return <p>{`${user}: ${bet} - ${date}`}</p>;
+        {childBets.slice(0, 3).map(({ user, bet, date }: any, idx: number) => {
+          if (idx === 2) {
+            return <div key={Math.random()}>... continued</div>;
+          }
+          return (
+            <div key={Math.random()}>
+              <p>{`${user}: ${bet} - ${date}`}</p>
+            </div>
+          );
         })}
         <hr />
 
@@ -49,7 +55,7 @@ function Card({
         <h3>Comments</h3>
         {comments.slice(0, 3).map(({ user, comment, id }: any, idx: number) => {
           if (idx === 2) {
-            return <div>... continued</div>;
+            return <div key={Math.random()}>... continued</div>;
           }
           return (
             <div key={id}>

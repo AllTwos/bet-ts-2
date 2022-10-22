@@ -1,16 +1,24 @@
 import { useState } from "react";
 import "./index.css";
-
+import { useGlobalContext } from "../../Utils/Context";
 import { useParams } from "react-router-dom";
 
-const BetPage = ({ allBets, addComment }: any) => {
-  const [userComment, setUserComment] = useState("");
+const BetPage = () => {
+  const {
+    allBets,
+    addComment,
+    userComment,
+    setUserComment,
+    childBetText,
+    setChildBetText,
+    addChildBet,
+  }: any = useGlobalContext();
 
   let params = useParams();
 
   let theBet = allBets.filter((bet: any) => bet.id.toString() === params.id)[0];
 
-  let { id, user, betTitle, betStr, date, comments, bets } = theBet;
+  let { id, user, betTitle, betStr, date, comments, childBets } = theBet;
 
   return (
     <div className="bet-page">
@@ -20,13 +28,19 @@ const BetPage = ({ allBets, addComment }: any) => {
       <p>{user}</p>
       <hr />
       <h1>Bets</h1>
-      {bets.map(({ user, bet, date }: any) => {
+      {childBets.map(({ user, bet, date }: any) => {
         return (
           <div key={Math.random()}>
             <p>{`${user}: ${bet} - ${date}`}</p>
           </div>
         );
       })}
+      <input
+        onChange={(e) => setChildBetText(e.target.value)}
+        type="text"
+        value={childBetText}
+      />
+      <button onClick={() => addChildBet(id, childBetText)}>Bet Now!</button>
       <hr />
       <h3>Comments</h3>
       {comments.map(({ user, id, comment }: any) => {
@@ -43,7 +57,6 @@ const BetPage = ({ allBets, addComment }: any) => {
         onKeyDown={(e) => {
           if (e.key === "Enter") {
             addComment(id, userComment);
-            setUserComment("");
           }
         }}
         type="text"
@@ -52,7 +65,6 @@ const BetPage = ({ allBets, addComment }: any) => {
       <button
         onClick={() => {
           addComment(id, userComment);
-          setUserComment("");
         }}
       >
         Add comment

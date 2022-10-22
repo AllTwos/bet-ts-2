@@ -5,7 +5,7 @@ export interface Bet {
   betStr: string;
   date: string;
   comments: any;
-  bets: any;
+  childBets: any;
 }
 
 export type Bets = Bet[];
@@ -17,7 +17,7 @@ export const bets: Bets = [
     betTitle: "When will Joe Everyman get divorced?",
     betStr: "We all know Joe is cheating on his wife. When will she find out?",
     date: new Date().toLocaleDateString(),
-    bets: [
+    childBets: [
       {
         user: "TestPerson1",
         bet: "Summer 2023",
@@ -53,7 +53,7 @@ export const bets: Bets = [
     betTitle: "How many useless degrees until Max Personman gets a job",
     betStr: "Max is perpetually in school. When will he actually get a job?",
     date: new Date().toLocaleDateString(),
-    bets: [
+    childBets: [
       {
         user: "TestPerson77",
         bet: "4",
@@ -89,7 +89,7 @@ export const bets: Bets = [
     betTitle: "Year when all the birds just give up",
     betStr: "They MUST be getting tired of flying. It's only a matter of time",
     date: new Date().toLocaleDateString(),
-    bets: [
+    childBets: [
       {
         user: "HankHole",
         bet: "2030",
