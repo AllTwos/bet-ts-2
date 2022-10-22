@@ -13,12 +13,12 @@ function App() {
   const [allBets, setAllBets] = useState(bets);
 
   //funcs
-  const deleteBet = (id: any) => {
-    const newBets = allBets.filter((bet: Bet) => bet.id !== id);
-    console.log(newBets);
+  // const deleteBet = (id: any) => {
+  //   const newBets = allBets.filter((bet: Bet) => bet.id !== id);
+  //   console.log(newBets);
 
-    setAllBets(newBets);
-  };
+  //   setAllBets(newBets);
+  // };
 
   const createBet = () => {
     const newBet = {
