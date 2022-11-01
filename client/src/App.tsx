@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BetPage from "./Components/BetPage";
 
 function App() {
-  const { createBet }: any = useGlobalContext();  
+  const { createBet }: any = useGlobalContext();
 
   return (
     <Router>
