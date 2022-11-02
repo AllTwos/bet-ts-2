@@ -18,17 +18,20 @@ const AppProvider = ({ children }: any) => {
   };
 
   const createBet = () => {
+    let user1 = `user${Math.random().toFixed(3).slice(2)}`;
     const newBet = {
-      id: Math.random(),
-      user: "Big fargus",
-      betTitle: "Test Creation!",
-      betStr: "We diiiid it!",
+      id: allBets.length + 1,
+      user: user1,
+      betTitle: `${user1}'s Bet!`,
+      betStr: `The moon stops working`,
       date: new Date().toLocaleDateString(),
       comments: [],
       childBets: [],
     };
 
     setAllBets([...allBets, newBet]);
+    console.log(newBet.id);
+    
   };
 
   const addComment = (id: number, comment: string) => {
