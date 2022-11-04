@@ -13,60 +13,49 @@ export type Bets = Bet[];
 export const bets: Bets = [
   {
     id: 1,
-    user: "betMan333",
-    betTitle: "When will Joe Everyman get divorced?",
-    betStr: "We all know Joe is cheating on his wife. When will she find out?",
+    user: "Taylor",
+    betTitle: "When will Tanner get married again? $50",
+    betStr: `The new one has arrived! When will we go through this pony show again? Buy in is $50. <Bet added 11/4/2022>`,
     date: new Date().toLocaleDateString(),
     childBets: [
       {
-        user: "TestPerson1",
-        bet: "Summer 2023",
+        user: "Taylor",
+        bet: "July 2024",
         date: new Date().toLocaleDateString(),
       },
       {
-        user: "SandyPandy",
-        bet: "Fall 2024",
+        user: "Holly",
+        bet: "April 2023",
         date: new Date().toLocaleDateString(),
       },
       {
-        user: "BrotherJoe44",
-        bet: "Today!",
+        user: "Tatum",
+        bet: "May 2024",
+        date: new Date().toLocaleDateString(),
+      },
+      {
+        user: "Mark",
+        bet: "June 2025",
         date: new Date().toLocaleDateString(),
       },
     ],
-    comments: [
-      {
-        id: 1,
-        user: "Larry",
-        comment: "I cannot believe I am comment!",
-      },
-      {
-        id: 2,
-        user: "Shoozie",
-        comment: "I cannot believe I am comment too!",
-      },
-    ],
+    comments: [],
   },
   {
     id: 2,
-    user: "testBetter9",
-    betTitle: "How many useless degrees until Max Personman gets a job",
-    betStr: "Max is perpetually in school. When will he actually get a job?",
+    user: "Mark G",
+    betTitle: "When will Tanner reveal his new gf to everyone? $50",
+    betStr: "The reveal has to be <add stipulation>",
     date: new Date().toLocaleDateString(),
     childBets: [
       {
-        user: "TestPerson77",
-        bet: "4",
+        user: "Taylor",
+        bet: "January 14 2023",
         date: new Date().toLocaleDateString(),
       },
       {
-        user: "UpDownAllAround5",
-        bet: "3",
-        date: new Date().toLocaleDateString(),
-      },
-      {
-        user: "BrotherJoe44",
-        bet: "100!",
+        user: "Holly",
+        bet: "TBD",
         date: new Date().toLocaleDateString(),
       },
     ],

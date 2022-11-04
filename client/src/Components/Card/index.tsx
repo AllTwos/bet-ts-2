@@ -24,7 +24,7 @@ function Card({
         <p>{date}</p>
         <hr />
         {/* Bets */}
-        <h3>Bets</h3>
+        <h3>Bets - ${childBets.length * 50}</h3>
         {childBets.slice(0, 3).map(({ user, bet, date }: any, idx: number) => {
           if (idx === 2) {
             return <div key={Math.random()}>... continued</div>;
